@@ -12,7 +12,20 @@ class _contadorState extends State<contador> {
   int clickcontador = 0;
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Contador')),
+      appBar: AppBar(
+        title: Text('Contador'),
+        //Creacion boton refresh
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                clickcontador = 0; // Reset 0
+              });
+            },
+            icon: Icon(Icons.refresh),
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -26,7 +39,7 @@ class _contadorState extends State<contador> {
         ),
       ),
 
-      // Primer cambio - agregar boton menos clicks junto con boton mas clicks
+      // agregar boton menos clicks junto con boton mas clicks
       //BOTON -1
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
